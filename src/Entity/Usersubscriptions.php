@@ -64,6 +64,7 @@ class Usersubscriptions
      * @ORM\JoinColumn(name="UserID", referencedColumnName="ID")
      */
     private $user;
+    
 
     public function setUser(Users $user): self
     {
@@ -146,6 +147,17 @@ class Usersubscriptions
         }
 
         return $subscriptions;
+    }
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
     }
 
 
