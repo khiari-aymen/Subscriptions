@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
+use DateTimeInterface;
 use App\Entity\Subscriptions;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Usersubscriptions
@@ -23,18 +25,17 @@ class Usersubscriptions
     private $id = 'NULL' ;
 
     /**
-     * @var \DateTime
      *
      * @ORM\Column(name="StartDate", type="datetime", nullable=false, options={"default"="current_timestamp()"})
      */
-    private $startdate = 'current_timestamp()';
+    private $startdate = null;
 
     /**
      * @var \DateTime|null
      *
      * @ORM\Column(name="EndDate", type="datetime", nullable=true, options={"default"="NULL"})
      */
-    private $enddate = 'NULL';
+    private $enddate = null;
 
     /**
      * @var \Users
@@ -84,19 +85,19 @@ class Usersubscriptions
         return $this->id;
     }
 
-    public function getStartDate(): ?\DateTime
+    public function getStartDate(): ?DateTimeInterface
     {
         return $this->startdate;
     }
 
-    public function setStartDate(\DateTimeInterface $startdate): self
+    public function setStartDate(?DateTimeInterface $startdate): self
     {
         $this->startdate = $startdate;
 
         return $this;
     }
 
-    public function getEndDate(): ?\DateTime
+    public function getEndDate(): ?DateTime
     {
         return $this->enddate;
     }
@@ -148,19 +149,4 @@ class Usersubscriptions
 
         return $subscriptions;
     }
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-
-
-
 }

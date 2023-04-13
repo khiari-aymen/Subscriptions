@@ -15,9 +15,8 @@ class UsersubscriptionsType extends AbstractType
         $builder
             ->add('userid')
             ->add('subscriptionid')
-            ->add('name')
-            ->add('startdate')
-            ->add('duration')
+            ->add('StartDate')
+            ->add('EndDate')
             
         ;
     }
