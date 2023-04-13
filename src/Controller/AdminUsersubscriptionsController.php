@@ -55,6 +55,7 @@ class AdminUsersubscriptionsController extends AbstractController
 
         // Handle the form submission
         $form->handleRequest($request);
+        dump($userSubscription);
         if ($form->isSubmitted() && $form->isValid()) {
             // Save the UserSubscription entity to the database
             $this->entityManager->persist($userSubscription);

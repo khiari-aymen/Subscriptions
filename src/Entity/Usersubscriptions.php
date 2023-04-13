@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Users;
 use DateTimeInterface;
 use App\Entity\Subscriptions;
 use Doctrine\ORM\Mapping as ORM;
@@ -74,7 +75,7 @@ class Usersubscriptions
         return $this;
     }
 
-    public function getUser(): Users
+    public function getUser(): ?Users
     {
         return $this->user;
     }
@@ -125,28 +126,11 @@ class Usersubscriptions
     {
         return $this->subscriptionid;
     }
-
+    
     public function setSubscriptionid(?Subscriptions $subscriptionid): self
     {
         $this->subscriptionid = $subscriptionid;
 
         return $this;
-    }
-
-
-  
-    public function getSubscriptions($userId)
-    {
-        $userSubscriptions = $this->getUserSubscriptions();
-        $subscriptions = array();
-
-        foreach ($userSubscriptions as $userSubscription) {
-            $user = $userSubscription->getUserid();
-            if ($user !== null && $user->getId() === $userId) {
-                $subscriptions[] = $userSubscription->getSubscriptionid()->getName();
-            }
-        }
-
-        return $subscriptions;
     }
 }

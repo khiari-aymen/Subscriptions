@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Create a new user subscription</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.user) }}
+    {{ form_row(form.subscriptionid) }}
+    {{ form_row(form.startDate) }}
+    {{ form_row(form.endDate) }}
+    {{ form_rest(form) }}
+    <button type="submit" class="btn btn-primary">Create</button>
+    {{ form_end(form) }}
+{% endblock %}

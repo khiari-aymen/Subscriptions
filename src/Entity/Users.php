@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Types\PointType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -98,5 +99,147 @@ class Users
      */
     private $loyaltypoints = '0';
 
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCin(): ?string
+    {
+        return $this->cin;
+    }
+
+    public function setCin(?string $cin): self
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getCurrentposition(): ?PointType
+    {
+        return $this->currentposition;
+    }
+
+    public function setCurrentposition(?PointType $currentposition): self
+    {
+        $this->currentposition = $currentposition;
+
+        return $this;
+    }
+
+    public function getPreviouslocation(): ?PointType
+    {
+        return $this->previouslocation;
+    }
+
+    public function setPreviouslocation(?PointType $previouslocation): self
+    {
+        $this->previouslocation = $previouslocation;
+
+        return $this;
+    }
+
+    public function getPreferredmode(): ?string
+    {
+        return $this->preferredmode;
+    }
+
+    public function setPreferredmode(?string $preferredmode): self
+    {
+        $this->preferredmode = $preferredmode;
+
+        return $this;
+    }
+
+    public function getNotificationsettings(): ?array
+    {
+        return $this->notificationsettings;
+    }
+
+    public function setNotificationsettings(array $notificationsettings): self
+    {
+        $this->notificationsettings = $notificationsettings;
+
+        return $this;
+    }
+
+    public function getAccessibilityrequirements(): ?array
+    {
+        return $this->accessibilityrequirements;
+    }
+
+    public function setAccessibilityrequirements(?array $accessibilityrequirements): self
+    {
+        $this->accessibilityrequirements = $accessibilityrequirements;
+
+        return $this;
+    }
+
+    public function getLoyaltypoints(): ?int
+    {
+        return $this->loyaltypoints;
+    }
+
+    public function setLoyaltypoints(?int $loyaltypoints): self
+    {
+        $this->loyaltypoints = $loyaltypoints;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->email;
+    }
 
 }
